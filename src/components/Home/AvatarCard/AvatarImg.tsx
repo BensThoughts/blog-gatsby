@@ -1,6 +1,7 @@
 import {useProgressiveImage} from '@app/utils/hooks/useProgressiveImg';
 import styled from '@emotion/styled';
 import {buildImageUrl} from 'cloudinary-build-url';
+import { StaticImage } from 'gatsby-plugin-image';
 
 const TransitionColor = styled.div`
   transition-property: background, color;
@@ -101,6 +102,8 @@ const imgSrcLarge = buildImageUrl(imagePath, {
 export default function AvatarImg({className}: AvatarImgProps) {
   const [src, blur] = useProgressiveImage(imgSrcSmall, imgSrcLarge);
 
+  console.log(imgSrcLarge);
+
   return (
     <TransitionColor className={`z-20 bg-transparent mt-10 md:mt-0 ${className}`}>
       <ImageBackground>
@@ -109,16 +112,32 @@ export default function AvatarImg({className}: AvatarImgProps) {
           <source srcSet={imgSrc} /> */}
           <img
             src={src}
+            // src={imgSrcLarge}
             alt="Bust Image"
             className="relative"
-            width="240"
-            height="240"
+            width={240}
+            height={240}
             style={{
               filter: blur ? 'blur(10px)' : 'none',
               transition: blur ? 'none' : 'filter 0.2s ease-out',
               // margin: '-5px -10px -10px -5px'
             }}
           />
+
+          {/* <StaticImage
+            src="https://res.cloudinary.com/bensthoughts/image/upload/c_thumb,w_240,h_240,q_auto,f_auto/v1634879054/blog/home/bust_blue_small_wrjvyl"
+            // src={imgSrcLarge}
+            alt="Bust Image"
+            className="relative"
+            width={240}
+            height={240}
+            placeholder="blurred"
+            // style={{
+            //   filter: blur ? 'blur(10px)' : 'none',
+            //   transition: blur ? 'none' : 'filter 0.2s ease-out',
+            //   // margin: '-5px -10px -10px -5px'
+            // }}
+          /> */}
           {/* </picture> */}
         </ImageWrapper>
       </ImageBackground>

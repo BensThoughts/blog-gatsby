@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { useStaticQuery, graphql } from 'gatsby';
 
 import Navbar from '@app/components/Layout/Navbar';
 import Footer from '@app/components/Layout/Footer';
@@ -25,6 +26,15 @@ const FooterWrap = styled.div`
 `;
 
 export default function App({children}: {children: React.ReactNode}) {
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `);
   const setInitialTheme = `
   (function() {
     function getInitialColorMode() {
@@ -48,11 +58,13 @@ export default function App({children}: {children: React.ReactNode}) {
     document.body.dataset.theme = colorMode;
   })()`;
   return (
-    <html lang="en">
-    <head>
-      <link rel="shortcut icon" href="/favicon.ico" />
-    </head>
-    <body>
+    // <html lang="en">
+    // <head>
+    //   <link rel="shortcut icon" href="/favicon.ico" />
+    // </head>
+    // <body>
+    <>
+      <title>{data.site.siteMetadata.title}</title>
       <script dangerouslySetInnerHTML={{__html: setInitialTheme}} />
       <ImageCacheProvider>
           <ThemeProvider>
@@ -72,7 +84,8 @@ export default function App({children}: {children: React.ReactNode}) {
           </PageWrapper>
           {/* </LazyMotion> */}
         </ImageCacheProvider>
-    </body>
-  </html>
+    </>
+    // </body>
+  // </html>
   );
 }

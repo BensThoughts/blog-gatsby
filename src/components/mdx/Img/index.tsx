@@ -1,3 +1,4 @@
+import * as React from 'react';
 import {useProgressiveImage} from '@app/utils/hooks/useProgressiveImg';
 import {buildImageUrl} from 'cloudinary-build-url';
 

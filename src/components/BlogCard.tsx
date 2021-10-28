@@ -1,4 +1,5 @@
-import Link from 'next/link';
+import * as React from 'react';
+import {Link} from 'gatsby';
 import styled from '@emotion/styled';
 import {keyframes} from '@emotion/react';
 
@@ -35,7 +36,7 @@ const Pill = styled.div<{
   animation-delay: ${({delay}) => delay + 's'};
 `;
 
-const AnchorContainer = styled.a`
+const AnchorContainer = styled.div`
   display: block;
   height: 100%;
   width: 100%;
@@ -82,16 +83,16 @@ const AnchorContainer = styled.a`
 `;
 
 type BlogCardProps = {
-  id: string
+  slug: string
   date: string
   title: string
   description: string
   tags: string[]
   className?: string
-} & React.HTMLAttributes<HTMLAnchorElement>
+} & React.HTMLAttributes<HTMLDivElement>
 
 export default function BlogCard({
-  id = '',
+  slug = '',
   title = '',
   date = '',
   description = '',
@@ -100,7 +101,7 @@ export default function BlogCard({
   ...rest
 }: BlogCardProps) {
   return (
-    <Link href={`/blog/${id}`} scroll={true} passHref>
+    <Link to={`/blog/${slug}/`}>
       <AnchorContainer className={`shadow-md ${className}`} {...rest}>
         <div className="h-full px-2 py-4 md:p-4 flex flex-col justify-start gap-4">
           <div>
