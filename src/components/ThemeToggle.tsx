@@ -66,8 +66,11 @@ export default function ThemeToggle() {
   const {colorMode, setColorMode} = useContext(ThemeContext);
   const inactiveColorMode = colorMode === 'light' ? 'dark' : 'light';
 
+  // if (!colorMode) {
+  //   return null;
+  // }
+
   return (
-    <>
       <ToggleButton
         aria-label={`Change to ${inactiveColorMode} mode`}
         title={`Change to ${inactiveColorMode} mode`}
@@ -78,7 +81,6 @@ export default function ThemeToggle() {
         <span aria-hidden="true"><CloudMoon className="text-icon-secondary" /></span>
         <span aria-hidden="true"><Sun className="text-icon-secondary" /></span>
       </ToggleButton>
-    </>
   );
 };
 

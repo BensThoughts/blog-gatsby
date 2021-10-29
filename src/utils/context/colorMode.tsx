@@ -18,17 +18,26 @@ interface ThemeProviderProps {
 const ThemeProvider = ({children}: ThemeProviderProps) => {
   // TODO: Scary use of ! (better way? is it guaranteed to be set?)
   // const [colorMode, rawSetColorMode] = useState<string>(document.body.dataset.theme!);
-  const [colorMode, rawSetColorMode] = useState<string>(document.body.dataset.theme!);
+  const [colorMode, rawSetColorMode] = useState<string | undefined>(undefined);
 
 
   useEffect(() => {
-    document.body.dataset.theme = colorMode;
-    window.localStorage.setItem('color-mode', colorMode);
-  }, [colorMode]);
+    const initialColorMode = document.body.dataset.theme;
+
+    if (initialColorMode) {
+      window.localStorage.setItem('color-mode', initialColorMode);
+      rawSetColorMode(initialColorMode);
+    }
+  }, []);
+
+  // useEffect(() => {
+  //   document.body.dataset.theme = colorMode;
+  // }, [])
 
   function setColorMode(newValue: string) {
     rawSetColorMode(newValue);
     localStorage.setItem('color-mode', newValue);
+    window.document.body.dataset.theme = newValue;
   };
 
   return (

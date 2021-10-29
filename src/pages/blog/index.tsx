@@ -7,6 +7,7 @@ import BlogCard from '@app/components/BlogCard';
 import MaxWidthWrapper from '@app/components/MaxWidthWrapper';
 import SectionTitle from '@app/components/SectionTitle';
 import { graphql, useStaticQuery } from 'gatsby';
+import SEO from '@app/components/Layout/SEO';
 
 
 const GridContainer = styled.div`
@@ -45,6 +46,10 @@ interface BlogArticleListProps {
 export default function BlogArticleListPage({data}: BlogArticleListProps) {
   console.log(data);
   return (
+    <>
+    <SEO
+      title="Blog"
+    />
     <App>
       <MaxWidthWrapper>
         <SectionTitle>
@@ -77,6 +82,7 @@ export default function BlogArticleListPage({data}: BlogArticleListProps) {
         </GridContainer>
       </MaxWidthWrapper>          
     </App>
+    </>
   );
 };
 

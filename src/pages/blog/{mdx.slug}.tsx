@@ -27,6 +27,7 @@ import {
 import BlogCard from '@app/components/BlogCard';
 import MaxWidthWrapper from '@app/components/MaxWidthWrapper';
 import GridWrapper from '@app/components/GridWrapper';
+import SEO from '@app/components/Layout/SEO';
 
 const components = {
   a: A,
@@ -99,45 +100,53 @@ export default function PostsPage({
   }
 
   return (
-    <App>
-      <MaxWidthWrapper>
-        <article>
-          <GridWrapper>
-            <ArticleHeader
-              title={title}
-              date={date}
-              readTime={readTime}
-              permaLink="tempTest"
-              tags={tags}
-              className="mt-10"
-            />
-            {cloudinaryImgPath && imgWidth && imgHeight && imgAlt ?
-              (
-                <HeaderImage
-                  imgPath={cloudinaryImgPath}
-                  alt={imgAlt}
-                  width={imgWidth}
-                  height={imgHeight}
-                />
-              ) :
-              (
-                <></>
-              )
-            }
-            <MDXProvider components={components}>
-              <MDXRenderer components={components}>
-                {body}
-              </MDXRenderer>
-            </MDXProvider>
-            <ArticleFooter
-              title={title}
-              permaLink="tempTest"
-              tags={tags}
-            />
-          </GridWrapper>
-        </article>
-      </MaxWidthWrapper>
-    </App>
+    <>
+      <SEO
+        title={title}
+        description={shortDescription}
+        image={cloudinaryImgPath}
+        article={true}
+      />
+      <App>
+        <MaxWidthWrapper>
+          <article>
+            <GridWrapper>
+              <ArticleHeader
+                title={title}
+                date={date}
+                readTime={readTime}
+                permaLink="tempTest"
+                tags={tags}
+                className="mt-10"
+              />
+              {cloudinaryImgPath && imgWidth && imgHeight && imgAlt ?
+                (
+                  <HeaderImage
+                    imgPath={cloudinaryImgPath}
+                    alt={imgAlt}
+                    width={imgWidth}
+                    height={imgHeight}
+                  />
+                ) :
+                (
+                  <></>
+                )
+              }
+              <MDXProvider components={components}>
+                <MDXRenderer components={components}>
+                  {body}
+                </MDXRenderer>
+              </MDXProvider>
+              <ArticleFooter
+                title={title}
+                permaLink="tempTest"
+                tags={tags}
+              />
+            </GridWrapper>
+          </article>
+        </MaxWidthWrapper>
+      </App>
+    </>
   );
 };
 

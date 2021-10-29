@@ -38,6 +38,7 @@
   },
   "devDependencies": {
     "@types/mdx-js__react": "^1.5.5",
+    "@types/react-helmet": "^6.1.4",
     "autoprefixer": "^10.3.7",
     "gatsby-plugin-postcss": "^5.0.0",
     "gatsby-plugin-typescript": "^4.0.0",

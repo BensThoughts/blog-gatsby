@@ -1,7 +1,12 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://bensthoughts.dev",
     title: "bensthoughts.dev",
+    titleTemplate: "%s · bensthoughts.dev",
+    description: "My personal portfolio and blog page",
+    siteUrl: "https://bensthoughts.dev",
+    url: "https://bensthoughts.dev",
+    twitterUsername: "@bensthoughts",
+    image: "https://res.cloudinary.com/bensthoughts/image/upload/v1630560422/blog/og-image/og-header-image_l1kxju.png"
   },
   plugins: [
     "gatsby-plugin-emotion",
@@ -10,12 +15,7 @@ module.exports = {
     "gatsby-plugin-sharp",
     "gatsby-plugin-mdx",
     "gatsby-plugin-react-helmet",
-    {
-      resolve: 'gatsby-plugin-typescript',
-      options: {
-        isTsx: true,
-      }
-    },
+    "gatsby-plugin-typescript",
     {
       resolve: 'gatsby-source-filesystem',
       options: {

@@ -2,6 +2,14 @@ import React, {useEffect, useState} from 'react';
 import Button from '@app/components/Button';
 import styled from '@emotion/styled';
 
+const FormField = styled.div`
+  background-color: rgba(var(--color-app-primary), 0.5);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+`;
+
 const FormLabel = styled.label<{
   placeholderShown: boolean,
   displayError: boolean,
@@ -19,14 +27,6 @@ const FormLabel = styled.label<{
   cursor: text;
   font-size: ${({placeholderShown}) => placeholderShown ? '1.2rem' : '0.75rem'};
   transform: ${({placeholderShown}) => placeholderShown ? 'translateY(0px)' : 'translateY(-14px)'}
-`;
-
-const FormField = styled.div`
-  background-color: rgba(var(--color-app-primary), 0.5);
-  border-radius: 4px;
-  overflow: hidden;
-  position: relative;
-  width: 100%;
 `;
 
 const FormFieldBar = styled.div<{
@@ -51,6 +51,7 @@ const FormInput = styled.input<{
   isTextArea: boolean,
 }>`
   appearance: none;
+  outline: none;
   background: transparent;
   border: 0;
   border-bottom: ${({displayError}) => displayError ? '2px solid rgb(var(--color-app-error))' : '2px solid rgb(var(--color-app-secondary))'};

@@ -25,7 +25,11 @@ const FooterWrap = styled.div`
   grid-row: 2 / 3;
 `;
 
-export default function App({children}: {children: React.ReactNode}) {
+type AppProps = {
+  children: React.ReactNode,
+}
+
+const App = ({children}: AppProps) => {
   const data = useStaticQuery(graphql`
     query {
       site {
@@ -35,28 +39,6 @@ export default function App({children}: {children: React.ReactNode}) {
       }
     }
   `);
-  const setInitialTheme = `
-  (function() {
-    function getInitialColorMode() {
-      const persistedColorPreference = window.localStorage.getItem('color-mode');
-      const hasPersistedPreference = typeof persistedColorPreference === 'string';
-
-      if (hasPersistedPreference) {
-        return persistedColorPreference;
-      }
-
-      const mql = window.matchMedia('(prefers-color-scheme: dark)');
-      const hasMediaQueryPreference = typeof mql.matches === 'boolean';
-      if (hasMediaQueryPreference) {
-        return mql.matches ? 'dark' : 'light';
-      }
-
-      return 'light';
-    }
-
-    const colorMode = getInitialColorMode();
-    document.body.dataset.theme = colorMode;
-  })()`;
   return (
     // <html lang="en">
     // <head>
@@ -64,8 +46,7 @@ export default function App({children}: {children: React.ReactNode}) {
     // </head>
     // <body>
     <>
-      <title>{data.site.siteMetadata.title}</title>
-      <script dangerouslySetInnerHTML={{__html: setInitialTheme}} />
+      {/* <script dangerouslySetInnerHTML={{__html: setInitialTheme}} /> */}
       <ImageCacheProvider>
           <ThemeProvider>
             <Navbar className="h-14" />
@@ -89,3 +70,5 @@ export default function App({children}: {children: React.ReactNode}) {
   // </html>
   );
 }
+
+export default App;
