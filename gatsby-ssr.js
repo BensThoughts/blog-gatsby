@@ -1,31 +1,31 @@
-// const MagicScriptTag = () => {
-//   const codeToRunOnClient = `(function() {
-//     function getInitialColorMode() {
-//       const persistedColorPreference = window.localStorage.getItem('color-mode');
-//       const hasPersistedPreference = typeof persistedColorPreference === 'string';
+const MagicScriptTag = () => {
+  const codeToRunOnClient = `(function() {
+    function getInitialColorMode() {
+      const persistedColorPreference = window.localStorage.getItem('color-mode');
+      const hasPersistedPreference = typeof persistedColorPreference === 'string';
   
-//       if (hasPersistedPreference) {
-//         return persistedColorPreference;
-//       }
+      if (hasPersistedPreference) {
+        return persistedColorPreference;
+      }
   
-//       const mql = window.matchMedia('(prefers-color-scheme: dark)');
-//       const hasMediaQueryPreference = typeof mql.matches === 'boolean';
-//       if (hasMediaQueryPreference) {
-//         return mql.matches ? 'dark' : 'light';
-//       }
+      const mql = window.matchMedia('(prefers-color-scheme: dark)');
+      const hasMediaQueryPreference = typeof mql.matches === 'boolean';
+      if (hasMediaQueryPreference) {
+        return mql.matches ? 'dark' : 'light';
+      }
   
-//       return 'light';
-//     }
+      return 'light';
+    }
   
-//     const colorMode = getInitialColorMode();
-//     document.body.dataset.theme = colorMode;
-//   })()`
+    const colorMode = getInitialColorMode();
+    document.body.dataset.theme = colorMode;
+  })()`
 
-//    // eslint-disable-next-line react/no-danger
-//    return <script dangerouslySetInnerHTML={{ __html: codeToRunOnClient }} />;
-// };
+   // eslint-disable-next-line react/no-danger
+   return <script dangerouslySetInnerHTML={{ __html: codeToRunOnClient }} />;
+};
 
-// export const onRenderBody = ({ setPreBodyComponents }) => {
-//   setPreBodyComponents(<MagicScriptTag key="MagicScriptTag"/>);
-// }
+export const onRenderBody = ({ setPreBodyComponents }) => {
+  setPreBodyComponents(<MagicScriptTag key="MagicScriptTag"/>);
+}
 
