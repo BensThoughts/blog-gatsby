@@ -1,8 +1,7 @@
 import * as React from 'react';
-import {buildImageUrl} from 'cloudinary-build-url';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
-import { graphql } from 'gatsby';
-import App from '@app/components/Layout/App';
+// import {buildImageUrl} from 'cloudinary-build-url';
+import {MDXRenderer} from 'gatsby-plugin-mdx';
+import {graphql} from 'gatsby';
 import {MDXProvider} from '@mdx-js/react';
 
 import {
@@ -73,12 +72,12 @@ type PostProps = {
 };
 
 export default function PostsPage({
-  data
+  data,
 }: PostProps) {
   const {
     title,
     shortDescription,
-    longDescription,
+    // longDescription,
     date,
     readTime,
     tags,
@@ -90,13 +89,13 @@ export default function PostsPage({
   const body = data.mdx.body;
   // const url = data.url;
 
-  let ogImageUrl;
+  // let ogImageUrl;
   if (cloudinaryImgPath) {
-    ogImageUrl = buildImageUrl(cloudinaryImgPath, {
-      cloud: {
-        cloudName: 'bensthoughts',
-      },
-    });
+    // ogImageUrl = buildImageUrl(cloudinaryImgPath, {
+    //   cloud: {
+    //     cloudName: 'bensthoughts',
+    //   },
+    // });
   }
 
   return (
@@ -107,18 +106,18 @@ export default function PostsPage({
         image={cloudinaryImgPath}
         article={true}
       />
-        <MaxWidthWrapper>
-          <article>
-            <GridWrapper>
-              <ArticleHeader
-                title={title}
-                date={date}
-                readTime={readTime}
-                permaLink="tempTest"
-                tags={tags}
-                className="mt-10"
-              />
-              {cloudinaryImgPath && imgWidth && imgHeight && imgAlt ?
+      <MaxWidthWrapper>
+        <article>
+          <GridWrapper>
+            <ArticleHeader
+              title={title}
+              date={date}
+              readTime={readTime}
+              permaLink="tempTest"
+              tags={tags}
+              className="mt-10"
+            />
+            {cloudinaryImgPath && imgWidth && imgHeight && imgAlt ?
                 (
                   <HeaderImage
                     imgPath={cloudinaryImgPath}
@@ -130,23 +129,23 @@ export default function PostsPage({
                 (
                   <></>
                 )
-              }
-              <MDXProvider components={components}>
-                <MDXRenderer components={components}>
-                  {body}
-                </MDXRenderer>
-              </MDXProvider>
-              <ArticleFooter
-                title={title}
-                permaLink="tempTest"
-                tags={tags}
-              />
-            </GridWrapper>
-          </article>
-        </MaxWidthWrapper>
+            }
+            <MDXProvider components={components}>
+              <MDXRenderer components={components}>
+                {body}
+              </MDXRenderer>
+            </MDXProvider>
+            <ArticleFooter
+              title={title}
+              permaLink="tempTest"
+              tags={tags}
+            />
+          </GridWrapper>
+        </article>
+      </MaxWidthWrapper>
     </>
   );
-};
+}
 
 export const query = graphql`
   query ($id: String) {
@@ -166,5 +165,5 @@ export const query = graphql`
       body
     }
 }
-`
+`;
 

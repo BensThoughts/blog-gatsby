@@ -32,7 +32,7 @@ interface CommandLineProps {
   args?: string,
   size?: CommandLineSize,
   className?: string,
-};
+}
 
 export default function CommandLine({
   title,

@@ -5,7 +5,6 @@ import {Link} from 'gatsby';
 import NetlifyForm from './NetlifyForm';
 import {Clipboard} from '@app/components/Icons';
 import BorderedBox from '@app/components/BorderedBox';
-import AnimatedLink from '@app/components/AnimatedLink';
 import AnimatedUnderline from '@app/components/AnimatedUnderline';
 
 type TechBoxProps = {

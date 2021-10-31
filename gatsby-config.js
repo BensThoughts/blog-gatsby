@@ -1,3 +1,14 @@
+const path = require('path');
+const gatsbyRequiredRules = path.join(
+  process.cwd(),
+  'node_modules',
+  'gatsby',
+  'dist',
+  'utils',
+  'eslint-rules',
+);
+
+
 module.exports = {
   siteMetadata: {
     title: "bensthoughts.dev",
@@ -27,6 +38,15 @@ module.exports = {
       options: {
         name: `blog`,
         path: `${__dirname}/posts-mdx`
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-eslint',
+      options: {
+        rulePaths: [gatsbyRequiredRules],
+        stages: ['develop'],
+        extensions: ['js', 'jsx', 'ts', 'tsx'],
+        exclude: ["node_modules", "bower_components", ".cache", "public"],
       }
     }
   ],

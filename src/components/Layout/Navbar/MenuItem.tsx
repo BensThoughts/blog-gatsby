@@ -1,4 +1,4 @@
-import React, {MouseEventHandler, ReactNode} from 'react';
+import React, {ReactNode} from 'react';
 import {Link} from 'gatsby';
 // import AnimatedLink from '@app/components/AnimatedLink';
 import AnimatedUnderline from '@app/components/AnimatedUnderline';

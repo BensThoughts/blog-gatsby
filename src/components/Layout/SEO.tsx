@@ -1,7 +1,7 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
-import { useStaticQuery, graphql } from 'gatsby';
-import { useLocation } from '@reach/router';
+import {Helmet} from 'react-helmet';
+import {useStaticQuery, graphql} from 'gatsby';
+import {useLocation} from '@reach/router';
 
 type SEOProps = {
   title: string,
@@ -16,8 +16,8 @@ const SEO = ({
   image,
   article,
 }: SEOProps) => {
-  const { pathname } = useLocation();
-  const { site } = useStaticQuery(query);
+  const {pathname} = useLocation();
+  const {site} = useStaticQuery(query);
 
   const {
     defaultTitle,
@@ -32,8 +32,8 @@ const SEO = ({
     title: title || defaultTitle,
     description: description || defaultDescription,
     image: `${image || defaultImage}`,
-    url: `${siteUrl}${pathname}`
-  }
+    url: `${siteUrl}${pathname}`,
+  };
 
   return (
     <Helmet title={seo.title} titleTemplate={title ? titleTemplate : defaultTitle}>
@@ -81,5 +81,5 @@ SEO.defaultProps = {
   title: null,
   description: null,
   image: null,
-  article: false
-}
+  article: false,
+};

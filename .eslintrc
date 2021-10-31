@@ -1,0 +1,24 @@
+{
+  // "parser": "babel-eslint", // uses babel-eslint transforms
+  // "settings": {
+  //   "react": {
+  //     "version": "detect" // detect react version
+  //   }
+  // },
+  "env": {
+    "node": true // defines things like process.env when generating through node
+  },
+  "extends": [
+    // "eslint:recommended", // use recommended configs
+    // "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "google"
+  ],
+  "rules": {
+    // "no-anonymous-exports-page-templates": "warn",
+    // "limited-exports-page-templates": "warn",
+    "require-jsdoc": "off",
+    "max-len": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off"
+  }
+ }

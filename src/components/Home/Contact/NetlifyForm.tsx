@@ -153,7 +153,7 @@ function NetlifyFormInput({
       <FormFieldBar displayError={displayError as boolean}></FormFieldBar>
     </FormField>
   );
-};
+}
 
 type NetlifyFormData = {
   'form-name': string,

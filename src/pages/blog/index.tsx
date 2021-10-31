@@ -1,12 +1,10 @@
 import * as React from 'react';
-import App from '@app/components/Layout/App';
-
 import styled from '@emotion/styled';
 
 import BlogCard from '@app/components/BlogCard';
 import MaxWidthWrapper from '@app/components/MaxWidthWrapper';
 import SectionTitle from '@app/components/SectionTitle';
-import { graphql, useStaticQuery } from 'gatsby';
+import {graphql} from 'gatsby';
 import SEO from '@app/components/Layout/SEO';
 
 
@@ -47,9 +45,9 @@ interface BlogArticleListProps {
 export default function BlogArticleListPage({data}: BlogArticleListProps) {
   return (
     <>
-    <SEO
-      title="Blog"
-    />
+      <SEO
+        title="Blog"
+      />
       <MaxWidthWrapper>
         <SectionTitle className="mb-12">
           <span className="text-icon-secondary">[&nbsp;</span>
@@ -64,7 +62,7 @@ export default function BlogArticleListPage({data}: BlogArticleListProps) {
               date,
               longDescription,
               tags,
-            }
+            },
           }, idx) => {
             return (
               <BlogCard
@@ -77,12 +75,12 @@ export default function BlogArticleListPage({data}: BlogArticleListProps) {
               />
             );
           })}
-  
+
         </GridContainer>
-      </MaxWidthWrapper>          
+      </MaxWidthWrapper>
     </>
   );
-};
+}
 
 export const query = graphql`
 query MyQuery {

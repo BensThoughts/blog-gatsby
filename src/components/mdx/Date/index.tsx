@@ -15,4 +15,4 @@ export default function Date(props: DateProps) {
   return (
     <Time dateTime={props.dateString}>{format(date, 'LLLL d, yyyy')}</Time>
   );
-};
+}

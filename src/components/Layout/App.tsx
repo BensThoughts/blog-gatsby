@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { useStaticQuery, graphql } from 'gatsby';
 
 import Navbar from '@app/components/Layout/Navbar';
 import Footer from '@app/components/Layout/Footer';
@@ -30,45 +29,26 @@ type AppProps = {
 }
 
 const App = ({children}: AppProps) => {
-  const data = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `);
   return (
-    // <html lang="en">
-    // <head>
-    //   <link rel="shortcut icon" href="/favicon.ico" />
-    // </head>
-    // <body>
-    <>
-      {/* <script dangerouslySetInnerHTML={{__html: setInitialTheme}} /> */}
-      <ImageCacheProvider>
-          <ThemeProvider>
-            <Navbar className="h-14" />
-          </ThemeProvider>
+    <ImageCacheProvider>
+      <ThemeProvider>
+        <Navbar className="h-14" />
+      </ThemeProvider>
 
-          {/* <LazyMotion features={domAnimation}> */}
-          <PageWrapper>
-            <ContentWrap>
-              <main className="z-0 mb-16 mt-8 max-h-full overflow-hidden">
-              {children}
-              </main>
-            </ContentWrap>
-            <FooterWrap>
-              <Footer className="h-16" />
-            </FooterWrap>
-          </PageWrapper>
-          {/* </LazyMotion> */}
-        </ImageCacheProvider>
-    </>
-    // </body>
-  // </html>
+      {/* <LazyMotion features={domAnimation}> */}
+      <PageWrapper>
+        <ContentWrap>
+          <main className="z-0 mb-16 mt-8 max-h-full overflow-hidden">
+            {children}
+          </main>
+        </ContentWrap>
+        <FooterWrap>
+          <Footer className="h-16" />
+        </FooterWrap>
+      </PageWrapper>
+      {/* </LazyMotion> */}
+    </ImageCacheProvider>
   );
-}
+};
 
 export default App;

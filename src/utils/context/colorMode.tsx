@@ -1,13 +1,13 @@
 import {createContext, ReactNode, useEffect, useState} from 'react';
-interface ThemeContextProps {
+type ThemeContextProps = {
   colorMode: string | undefined;
-  setColorMode: (value: string) => void
-};
+  setColorMode: ((value: string) => void) | undefined;
+}
 
 const themeContext: ThemeContextProps = {
   colorMode: undefined,
   // TODO: can remove value: string?
-  setColorMode: (value: string) => {},
+  setColorMode: undefined,
 };
 
 export const ThemeContext = createContext(themeContext);
@@ -38,7 +38,7 @@ const ThemeProvider = ({children}: ThemeProviderProps) => {
     rawSetColorMode(newValue);
     localStorage.setItem('color-mode', newValue);
     window.document.body.dataset.theme = newValue;
-  };
+  }
 
   return (
     <ThemeContext.Provider value={{colorMode, setColorMode}}>

@@ -8,4 +8,4 @@ export default function H1({children, className}: H1Props) {
       {children}
     </h1>
   );
-};
+}

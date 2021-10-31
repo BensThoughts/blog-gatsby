@@ -28,4 +28,4 @@ export default function H2({children, className}: H2Props) {
       {children}
     </H2Styled>
   );
-};
+}
