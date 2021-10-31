@@ -84,7 +84,10 @@ export default function BlogArticleListPage({data}: BlogArticleListProps) {
 
 export const query = graphql`
 query MyQuery {
-  allMdx(sort: {fields: frontmatter___date, order: DESC}) {
+  allMdx(
+    sort: {fields: frontmatter___date, order: DESC},
+    filter: {slug: {regex: "/^[^_]/" }}
+    ) {
     nodes {
       frontmatter {
         longDescription
