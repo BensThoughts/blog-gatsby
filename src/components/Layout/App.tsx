@@ -7,7 +7,7 @@ import Footer from '@app/components/Layout/Footer';
 import {ImageCacheProvider} from '@app/utils/hooks/useProgressiveImg';
 import ThemeProvider from '@app/utils/context/colorMode';
 
-import './app.css';
+// import './app.css';
 
 const PageWrapper = styled.div`
   padding-top: 3.5rem;
@@ -55,7 +55,7 @@ const App = ({children}: AppProps) => {
           {/* <LazyMotion features={domAnimation}> */}
           <PageWrapper>
             <ContentWrap>
-              <main className="z-0 mb-16 max-h-full overflow-hidden">
+              <main className="z-0 mb-16 mt-8 max-h-full overflow-hidden">
               {children}
               </main>
             </ContentWrap>

@@ -1,4 +1,3 @@
-import React from 'react';
 import {useContext} from 'react';
 import styled from '@emotion/styled';
 import {ThemeContext} from '@app/utils/context/colorMode';
@@ -25,7 +24,7 @@ const ToggleButton = styled.button`
   border: 0;
   border-radius: calc(var(--toggle-width) / 2);
   cursor: pointer;
-  background-color: rgba(var(--color-app-accent), var(--app-bg-opacity));
+  background-color: rgba(var(--color-app-accent), 1);
   transition-property: background, color;
   transition-duration: 300ms;
   transition-timing-function: ease-in-out;
@@ -65,10 +64,6 @@ const ToggleThumb = styled.span<{
 export default function ThemeToggle() {
   const {colorMode, setColorMode} = useContext(ThemeContext);
   const inactiveColorMode = colorMode === 'light' ? 'dark' : 'light';
-
-  // if (!colorMode) {
-  //   return null;
-  // }
 
   return (
       <ToggleButton

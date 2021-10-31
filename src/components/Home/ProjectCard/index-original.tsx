@@ -53,7 +53,7 @@ const AboutWrap = styled.div<{
 height: 100%;
 z-index: 2;
 height: 100%;
-background-color: rgba(var(--color-bg-terminal), 0.6);
+background-color: rgba(var(--color-app-primary), 0.6);
 border-width: ${({reversed}) => reversed ? '0 3px 0 0' : '0 0 0 3px'}; /* top right bottom left */
 border-style: solid;
 border-color: rgba(var(--color-text-secondary), 1);
@@ -136,6 +136,7 @@ transform: ${({viewed, expanded, reversed}) => {
 
 type ProjectCardProps = {
   title: string,
+  descriptionFirstSentence: string,
   description: string,
   cloudinaryImgPath: string,
   imgAlt: string,
@@ -151,6 +152,7 @@ type ProjectCardProps = {
 
 export default function ProjectsCard({
   title,
+  descriptionFirstSentence,
   description,
   cloudinaryImgPath,
   imgAlt,
@@ -212,7 +214,7 @@ export default function ProjectsCard({
           imgAlt={imgAlt}
           href={liveLink}
           width={460}
-          height={251}
+          height={252}
         />
       </ImageWrap>
 
@@ -224,6 +226,9 @@ export default function ProjectsCard({
         className={`p-4 flex flex-col justify-between h-full shadow-lg ${reversed ? 'items-end text-right' : 'items-start text-left'}`}
       >
         <p className="text-primary text-opacity-100 font-mono">
+          <strong>
+            {descriptionFirstSentence}
+          </strong>
           {description}
         </p>
         <div>

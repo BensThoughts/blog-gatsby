@@ -1,4 +1,3 @@
-import * as React from 'react';
 import {Link} from 'gatsby';
 import styled from '@emotion/styled';
 import {keyframes} from '@emotion/react';
@@ -36,7 +35,7 @@ const Pill = styled.div<{
   animation-delay: ${({delay}) => delay + 's'};
 `;
 
-const AnchorContainer = styled.div`
+const LinkContainer = styled.div`
   display: block;
   height: 100%;
   width: 100%;
@@ -101,8 +100,8 @@ export default function BlogCard({
   ...rest
 }: BlogCardProps) {
   return (
-    <Link to={`/blog/${slug}/`}>
-      <AnchorContainer className={`shadow-md ${className}`} {...rest}>
+    <Link to={`/blog/${slug}`}>
+      <LinkContainer className={`shadow-md ${className}`} {...rest}>
         <div className="h-full px-2 py-4 md:p-4 flex flex-col justify-start gap-4">
           <div>
             {title && <div className="text-2xl text-high-emphesis">{title}</div>}
@@ -120,7 +119,7 @@ export default function BlogCard({
             </div>
           </div>
         </div>
-      </AnchorContainer>
+      </LinkContainer>
     </Link>
   );
 }

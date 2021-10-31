@@ -17,6 +17,12 @@ module.exports = {
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-typescript",
     {
+      resolve: `gatsby-plugin-layout`,
+      options: {
+        component: require.resolve(`./src/components/Layout/App.tsx`),
+      }
+    },
+    {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: `blog`,

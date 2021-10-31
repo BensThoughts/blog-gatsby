@@ -18,6 +18,7 @@ const GridContainer = styled.div`
   @media (min-width: 768px) {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
+    grid-auto-flow: row;
     gap: 32px;
   }
 
@@ -44,15 +45,13 @@ interface BlogArticleListProps {
 }
 
 export default function BlogArticleListPage({data}: BlogArticleListProps) {
-  console.log(data);
   return (
     <>
     <SEO
       title="Blog"
     />
-    <App>
       <MaxWidthWrapper>
-        <SectionTitle>
+        <SectionTitle className="mb-12">
           <span className="text-icon-secondary">[&nbsp;</span>
             Blog
           <span className="text-icon-secondary">&nbsp;]</span>
@@ -81,7 +80,6 @@ export default function BlogArticleListPage({data}: BlogArticleListProps) {
   
         </GridContainer>
       </MaxWidthWrapper>          
-    </App>
     </>
   );
 };

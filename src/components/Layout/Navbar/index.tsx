@@ -1,5 +1,4 @@
 import React from 'react';
-
 import {useState} from 'react';
 import styled from '@emotion/styled';
 
@@ -15,7 +14,9 @@ import {menuItems} from './menuItems';
 import {
   Bars,
   Monitor,
+  Package,
 } from '@app/components/Icons';
+import AnimatedLinkWithIcon from '@app/components/AnimatedLinkWithIcon';
 
 const Nav = styled.nav`
   /* background-color: rgba(0, 0, 0, 0); */
@@ -67,32 +68,42 @@ export default function Navbar({className, ...rest}: NavBarProps) {
               key={menuItem.href}
               href={menuItem.href}
               onClick={() => setIsOpen(false)}
-              className="hover:bg-secondary w-full h-10 flex items-center justify-center text-xl"
+              className="hover:bg-primary w-full h-10 flex items-center justify-center text-xl"
             >
               {menuItem.name}
             </MenuItem>
           ))}
+          <a
+            href="assets/Benjamin-Blumenfeld-Jones-Resume-2021.pdf"
+            download="Benjamin Blumenfeld-Jones Resume 2021.pdf"
+            className="over:bg-primary w-full h-10 flex items-center justify-center text-xl text-secondary"
+          >
+            Resume
+          </a>
         </NavLinks>
       </MenuDrawer>
       <NavHider>
-        <Nav {...rest} className={`bg-app-bg shadow-lg bg-opacity-70 ${className}`}>
+        <Nav {...rest} className={`bg-app-bg bg-opacity-70 shadow-lg ${className}`}>
 
           {/* Medium+ Screens */}
-          <div className="hidden md:flex md:justify-between md:items-center md:w-full md:pt-0 md:mr-3">
-            <div className="ml-3">
-              <div className="flex items-center">
-                <div className="mr-3">
-                  <Monitor size={26} className="text-icon-secondary" />
-                </div>
-                {/* <div>
-                  <Breadcrumbs />
-                </div> */}
+          <div className="hidden md:flex md:justify-between md:items-center md:w-full md:pt-0 md:mx-3">
+            <div className="flex items-center gap-x-4">
+              <Monitor size={26} className="text-icon-secondary" />
+              <div className="flex items-center content-between pt-0 gap-4">
+                {menuItems.map((menuItem) => (
+                  <MenuItem animatedLink key={menuItem.href} href={menuItem.href}>{menuItem.name}</MenuItem>
+                ))}
+                <AnimatedLinkWithIcon
+                  href="assets/Benjamin-Blumenfeld-Jones-Resume-2021.pdf"
+                  download="Benjamin Blumenfeld-Jones Resume 2021.pdf"
+                  text="Resume"
+                  className="text-secondary"
+                  icon={<Package className="text-secondary" />}
+                />
               </div>
             </div>
-            <div className="flex items-center justify-end content-between pt-0 gap-4">
-              {menuItems.map((menuItem) => (
-                <MenuItem animatedLink key={menuItem.href} href={menuItem.href}>{menuItem.name}</MenuItem>
-              ))}
+            <div className="flex items-center justify-end gap-x-4">
+              {/* <Breadcrumbs className="hidden lg:flex" /> */}
               <ThemeToggle />
             </div>
           </div>

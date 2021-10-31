@@ -2,14 +2,6 @@ import React, {useEffect, useState} from 'react';
 import Button from '@app/components/Button';
 import styled from '@emotion/styled';
 
-const FormField = styled.div`
-  background-color: rgba(var(--color-app-primary), 0.5);
-  border-radius: 4px;
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-`;
-
 const FormLabel = styled.label<{
   placeholderShown: boolean,
   displayError: boolean,
@@ -27,6 +19,15 @@ const FormLabel = styled.label<{
   cursor: text;
   font-size: ${({placeholderShown}) => placeholderShown ? '1.2rem' : '0.75rem'};
   transform: ${({placeholderShown}) => placeholderShown ? 'translateY(0px)' : 'translateY(-14px)'}
+`;
+
+const FormField = styled.div`
+  background-color: rgba(var(--color-app-primary), 1);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  outline: none;
 `;
 
 const FormFieldBar = styled.div<{
@@ -59,10 +60,13 @@ const FormInput = styled.input<{
   display: block;
   font-size: 1.2rem;
   margin-top: 24px;
-  outline: 0;
   padding: 0 12px 10px 12px;
   width: 100%;
   height: ${({isTextArea}) => isTextArea ? '250px' : '100%'};
+
+  &:focus-visible {
+    outline: none;
+  }
 
   &:focus {
     ~${FormLabel} {
@@ -245,9 +249,14 @@ export default function NetlifyForm() {
         data-netlify="true"
         className={`flex flex-col gap-4 items-center`}
         onSubmit={handleSubmit}
+        netlify-honeypot="input-field"
         // noValidate
       >
-        <input type="hidden" name="form-name" value={FORM_NAME} />
+        <p className="hidden">
+          <label>Don&apos;t fill this out if you&apos;re human:</label>
+          <input type="hidden" name="form-name" value={FORM_NAME} />
+          <input type="hidden" name="input-field" />
+        </p>
         <NetlifyFormInput
           name="name"
           type="text"

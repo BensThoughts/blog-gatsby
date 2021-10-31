@@ -3,12 +3,12 @@ import * as React from "react";
 import MaxWidthWrapper from '@app/components/MaxWidthWrapper';
 import GridWrapper from '@app/components/GridWrapper';
 import AvatarCard from '@app/components/Home/AvatarCard';
-import ProjectsCard from '@app/components/Home/ProjectsCard';
+import ProjectsCard from '@app/components/Home/ProjectCard';
 import SectionTitle from '@app/components/SectionTitle';
-import {Projects} from '@app/components/Home/ProjectsCard/projects';
+import {Projects} from '@app/components/Home/ProjectCard/projects';
 import Technologies from '@app/components/Home/Technologies';
-import TechnologiesBox from '@app/components/Home/Technologies/TechnologiesBox';
-import NetlifyForm from '@app/components/Home/NetlifyForm';
+// import TechnologiesBox from '@app/components/Home/Technologies/TechnologiesBox';
+import Contact from '@app/components/Home/Contact';
 import App from '@app/components/Layout/App';
 import SEO from '@app/components/Layout/SEO';
 
@@ -18,11 +18,10 @@ export default function IndexPage() {
       <SEO 
         title="Home"
       />
-      <App>
         <MaxWidthWrapper>
           <GridWrapper charWidth={100}>
             {/* About Section */}
-            <SectionTitle id="about-section">
+            <SectionTitle id="about">
               <span className="text-icon-secondary">[</span>
                     &nbsp;01. About Me&nbsp;
               <span className="text-icon-secondary">]</span>
@@ -30,20 +29,15 @@ export default function IndexPage() {
             <AvatarCard />
     
             {/* Technologies Section */}
-            <SectionTitle id="technologies-section">
+            <SectionTitle id="skills">
               <span className="text-icon-secondary">[</span>
                     &nbsp;02. Technologies&nbsp;
               <span className="text-icon-secondary">]</span>
             </SectionTitle>
-            <div className="flex items-center justify-center">
-              <TechnologiesBox />
-            </div>
-            <div className="flex items-center justify-center">
-              <Technologies />
-            </div>
+            <Technologies />
     
             {/* Projects Section */}
-            <SectionTitle id="projects-section">
+            <SectionTitle id="projects">
               <span className="text-icon-secondary">[</span>
                     &nbsp;03. Projects&nbsp;
               <span className="text-icon-secondary">]</span>
@@ -52,6 +46,7 @@ export default function IndexPage() {
               <ProjectsCard
                 key={project.title}
                 title={project.title}
+                descriptionFirstSentence={project.descriptionFirstSentence}
                 description={project.description}
                 githubLink={project.githubLink}
                 liveLink={project.liveLink}
@@ -62,15 +57,14 @@ export default function IndexPage() {
               />
             ))}
     
-            <SectionTitle id="contact-section">
+            <SectionTitle id="contact">
               <span className="text-icon-secondary">[</span>
                     &nbsp;04. Contact&nbsp;
               <span className="text-icon-secondary">]</span>
             </SectionTitle>
-            <NetlifyForm />
+            <Contact/>
           </GridWrapper>
         </MaxWidthWrapper>
-      </App>
     </>
   );
 };

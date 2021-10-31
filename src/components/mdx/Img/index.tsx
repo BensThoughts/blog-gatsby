@@ -1,4 +1,3 @@
-import * as React from 'react';
 import {useProgressiveImage} from '@app/utils/hooks/useProgressiveImg';
 import {buildImageUrl} from 'cloudinary-build-url';
 
@@ -29,16 +28,14 @@ export default function Img({src, alt}: ImgProps) {
   const [srcUrl, blur] = useProgressiveImage(lowQualityImgUrl, highQualityImgurl);
 
   return (
-    <>
-      <img
-        src={srcUrl}
-        alt={alt}
-        style={{
-          filter: blur ? 'blur(10px)' : 'none',
-          transition: blur ? 'none' : 'filter 0.2s ease-out',
-          // margin: '-5px -10px -10px -5px'
-        }}
-      />
-    </>
+    <img
+      src={srcUrl}
+      alt={alt}
+      style={{
+        filter: blur ? 'blur(10px)' : 'none',
+        transition: blur ? 'none' : 'filter 0.2s ease-out',
+        // margin: '-5px -10px -10px -5px'
+      }}
+    />
   );
 }

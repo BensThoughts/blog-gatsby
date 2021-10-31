@@ -107,7 +107,6 @@ export default function PostsPage({
         image={cloudinaryImgPath}
         article={true}
       />
-      <App>
         <MaxWidthWrapper>
           <article>
             <GridWrapper>
@@ -145,7 +144,6 @@ export default function PostsPage({
             </GridWrapper>
           </article>
         </MaxWidthWrapper>
-      </App>
     </>
   );
 };
