@@ -55,7 +55,7 @@ export default function CodeElement({
           code={children}
           language={language}
         >
-          {({className, style, tokens, getLineProps, getTokenProps}) => (
+          {({className, tokens, getLineProps, getTokenProps}) => (
             <Pre className={`overflow-x-auto w-full text-left mt-0 text-primary p-1 ${className}`}>
               {tokens.map((line, i) => (
                 <Line key={i} {...getLineProps({line, key: i})} className="md:table">
@@ -72,7 +72,5 @@ export default function CodeElement({
         </Highlight>
       </div>
     </div>
-
-
   );
 }

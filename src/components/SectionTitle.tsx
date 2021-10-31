@@ -45,17 +45,11 @@ backdrop-filter: var(--app-backdrop-filter);
 }
 `;
 
-
-type SectionTitleProps = {
-  reversed?: boolean;
-} & React.HTMLAttributes<HTMLDivElement>
-
 export default function SectionTitleHeader({
-  reversed = false,
   className,
   children,
   ...rest
-}: SectionTitleProps) {
+}: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div className={`flex h-full items-center my-2 ${className}`} {...rest}>
       <Header>{children}</Header>

@@ -8,7 +8,7 @@ export default function useScrollDirection() {
   const {y} = useWindowScroll();
   const [scrollDirection, setScrollDirection] = useState<ScrollDirection>('up');
 
-  const listener = (e: any) => {
+  const listener = () => {
     setScrollDirection(y > lastScrollTop ? 'down' : 'up');
     setLastScrollTop(y);
   };

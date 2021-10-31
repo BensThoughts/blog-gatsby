@@ -7,11 +7,8 @@ import {Clipboard} from '@app/components/Icons';
 import BorderedBox from '@app/components/BorderedBox';
 import AnimatedUnderline from '@app/components/AnimatedUnderline';
 
-type TechBoxProps = {
-  className?: string;
-}
 
-export default function TechnologiesBox({className}: TechBoxProps) {
+export default function TechnologiesBox() {
   return (
     <>
       <div className="flex justify-center items-center">

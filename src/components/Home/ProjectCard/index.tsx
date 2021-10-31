@@ -116,7 +116,7 @@ will-change: transform background opacity;
 
 @media (min-width: 1024px) {  
   grid-area: ${({reversed}) => reversed ? '8 / 2 / -1 / 8' : '8 / 6 / -1 / -2'};
-  transform: ${({viewed, reversed}) => {
+  transform: ${({viewed}) => {
     /* const flipBit = reversed ? -1 : 1; */
     if (!viewed) {
       return `translateY(400px)`;

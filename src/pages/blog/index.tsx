@@ -63,7 +63,7 @@ export default function BlogArticleListPage({data}: BlogArticleListProps) {
               longDescription,
               tags,
             },
-          }, idx) => {
+          }) => {
             return (
               <BlogCard
                 key={slug}

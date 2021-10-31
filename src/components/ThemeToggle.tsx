@@ -65,6 +65,10 @@ export default function ThemeToggle() {
   const {colorMode, setColorMode} = useContext(ThemeContext);
   const inactiveColorMode = colorMode === 'light' ? 'dark' : 'light';
 
+  if (!colorMode || !setColorMode) {
+    return null;
+  }
+
   return (
     <ToggleButton
       aria-label={`Change to ${inactiveColorMode} mode`}
