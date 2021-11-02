@@ -120,12 +120,19 @@ const CurrentColumn = styled.div`
   }
 `;
 
+type StatusBarProps = {
+  file: string;
+  lineNum: number;
+} & React.HTMLAttributes<HTMLDivElement>
+
 export default function StatusBar({
   file = 'index.ts',
   lineNum = 0,
-}) {
+  className,
+  ...rest
+}: StatusBarProps) {
   return (
-    <StatusBarContainer className="font-mono text-base select-none">
+    <StatusBarContainer className={`font-mono text-base select-none ${className}`} {...rest}>
       <StatusBarLeft>
         <Status className="text-center h-full">
           NORMAL
