@@ -1,17 +1,21 @@
 {
   // "parser": "babel-eslint", // uses babel-eslint transforms
-  // "settings": {
-  //   "react": {
-  //     "version": "detect" // detect react version
-  //   }
-  // },
+  "settings": {
+    "react": {
+      "version": "detect" // detect react version
+    }
+  },
+  "parserOptions": {
+    "ecmaVersion": 2017
+  },
   "env": {
-    "node": true // defines things like process.env when generating through node
+    "node": true, // defines things like process.env when generating through node
+    "es6": true
   },
   "extends": [
-    // "eslint:recommended", // use recommended configs
-    // "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended",
+    "eslint:recommended", // use recommended configs
+    "plugin:react/recommended",
+    // "plugin:@typescript-eslint/recommended",
     "google"
   ],
   "rules": {
@@ -20,5 +24,23 @@
     "require-jsdoc": "off",
     "max-len": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off"
-  }
+  },
+  "overrides": [{
+    "files": ["*.ts", "*.tsx"],
+    "excludedFiles": ["*.test.js", "gatsby-node.js", "gatsby-config.js", "*.js"],
+    "plugins": ["@typescript-eslint"],
+    "extends": [
+      "plugin:@typescript-eslint/eslint-recommended",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:react/recommended",
+      "google"
+    ],
+    "rules": {
+          // "no-anonymous-exports-page-templates": "warn",
+    // "limited-exports-page-templates": "warn",
+    "require-jsdoc": "off",
+    "max-len": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off"
+    }
+  }]
  }
