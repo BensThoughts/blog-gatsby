@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://bensthoughts.dev/sitemap.xml
+Sitemap: https://bensthoughts.dev/sitemap/sitemap-index.xml
