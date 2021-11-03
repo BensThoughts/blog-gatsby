@@ -35,7 +35,7 @@ const Pill = styled.div<{
   animation-delay: ${({delay}) => delay + 's'};
 `;
 
-const LinkContainer = styled.div`
+const LinkContainer = styled(Link)`
   display: block;
   height: 100%;
   width: 100%;
@@ -88,7 +88,7 @@ type BlogCardProps = {
   description: string
   tags: string[]
   className?: string
-} & React.HTMLAttributes<HTMLDivElement>
+}
 
 export default function BlogCard({
   slug = '',
@@ -100,26 +100,24 @@ export default function BlogCard({
   ...rest
 }: BlogCardProps) {
   return (
-    <Link to={`/blog/${slug}`}>
-      <LinkContainer className={`shadow-md ${className}`} {...rest}>
-        <div className="h-full px-2 py-4 md:p-4 flex flex-col justify-start gap-4">
-          <div>
-            {title && <div className="text-2xl text-high-emphesis">{title}</div>}
-            {date && <div className="italic">{date}</div>}
-          </div>
-          {description && <div className="text-base">{description}</div>}
-          <div className="h-full flex flex-col justify-end">
-            <div className="flex flex-wrap gap-x-2 gap-y-4 justify-start">
-              {tags.map((tag, idx) => (
-                <Pill key={tag} delay={0.07 * idx}>
-                  <span className="text-secondary">#</span>
-                  {tag}
-                </Pill>
-              ))}
-            </div>
+    <LinkContainer to={`/blog/${slug}`} className={`shadow-md ${className}`} {...rest}>
+      <div className="h-full px-2 py-4 md:p-4 flex flex-col justify-start gap-4">
+        <div>
+          {title && <div className="text-2xl text-high-emphesis">{title}</div>}
+          {date && <div className="italic">{date}</div>}
+        </div>
+        {description && <div className="text-base">{description}</div>}
+        <div className="h-full flex flex-col justify-end">
+          <div className="flex flex-wrap gap-x-2 gap-y-4 justify-start">
+            {tags.map((tag, idx) => (
+              <Pill key={tag} delay={0.07 * idx}>
+                <span className="text-secondary">#</span>
+                {tag}
+              </Pill>
+            ))}
           </div>
         </div>
-      </LinkContainer>
-    </Link>
+      </div>
+    </LinkContainer>
   );
 }
