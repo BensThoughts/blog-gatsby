@@ -1,3 +1,5 @@
+import React from 'react';
+
 const MagicScriptTag = () => {
   const codeToRunOnClient = `(function() {
     function getInitialColorMode() {
@@ -19,13 +21,13 @@ const MagicScriptTag = () => {
   
     const colorMode = getInitialColorMode();
     document.body.dataset.theme = colorMode;
-  })()`
+  })()`;
 
-   // eslint-disable-next-line react/no-danger
-   return <script dangerouslySetInnerHTML={{ __html: codeToRunOnClient }} />;
+  // eslint-disable-next-line react/no-danger
+  return <script dangerouslySetInnerHTML={{__html: codeToRunOnClient}} />;
 };
 
-export const onRenderBody = ({ setPreBodyComponents }) => {
+export const onRenderBody = ({setPreBodyComponents}) => {
   setPreBodyComponents(<MagicScriptTag key="MagicScriptTag"/>);
-}
+};
 
