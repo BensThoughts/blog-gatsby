@@ -86,7 +86,7 @@ export const query = graphql`
 query MyQuery {
   allMdx(
     sort: {fields: frontmatter___date, order: DESC},
-    filter: {slug: {regex: "/^[^_]/" }}
+    # filter: {slug: {regex: "/^(?!drafts\/).*/"}}
     ) {
     nodes {
       frontmatter {
