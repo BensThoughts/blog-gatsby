@@ -6,8 +6,6 @@ import Footer from '@app/components/Layout/Footer';
 import {ImageCacheProvider} from '@app/utils/hooks/useProgressiveImg';
 import ThemeProvider from '@app/utils/context/colorMode';
 
-// import './app.css';
-
 const PageWrapper = styled.div`
   padding-top: 3.5rem;
   margin-top: 0rem;
