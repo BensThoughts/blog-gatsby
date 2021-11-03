@@ -68,6 +68,7 @@ export default function Navbar({className, ...rest}: NavBarProps) {
               key={menuItem.href}
               href={menuItem.href}
               onClick={() => setIsOpen(false)}
+              anchorLink={menuItem.anchorLink}
               className="hover:bg-primary w-full h-10 flex items-center justify-center text-xl"
             >
               {menuItem.name}
