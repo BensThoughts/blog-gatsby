@@ -25,6 +25,7 @@
     "gatsby": "^4.0.0",
     "gatsby-plugin-anchor-links": "^1.2.1",
     "gatsby-plugin-emotion": "^7.0.0",
+    "gatsby-plugin-google-tagmanager": "^4.1.0",
     "gatsby-plugin-image": "^2.0.0",
     "gatsby-plugin-layout": "^3.0.0",
     "gatsby-plugin-mdx": "^3.0.0",

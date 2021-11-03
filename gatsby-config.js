@@ -40,6 +40,13 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-typescript',
     {
+      resolve: 'gatsby-plugin-google-tagmanager',
+      options: {
+        id: 'GTM-5BQBMWT',
+        includeInDevelopment: true,
+      },
+    },
+    {
       resolve: 'gatsby-plugin-anchor-links',
       options: {
         offset: -70,
@@ -90,7 +97,7 @@ module.exports = {
       options: {
         name: `blog`,
         path: `${__dirname}/posts-mdx`,
-        ignore: process.env.NODE_ENV === `production` ?[`**/drafts*`] : [],
+        ignore: process.env.NODE_ENV === `production` ? [`**/drafts*`] : [],
       },
     },
     {
