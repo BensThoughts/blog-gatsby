@@ -72,7 +72,7 @@ type PostProps = {
 };
 
 export default function PostsPage({
-  data,
+  data: {mdx},
 }: PostProps) {
   const {
     title,
@@ -85,8 +85,8 @@ export default function PostsPage({
     imgWidth,
     imgHeight,
     imgAlt,
-  } = data.mdx.frontmatter;
-  const body = data.mdx.body;
+  } = mdx.frontmatter;
+  const body = mdx.body;
   // const url = data.url;
 
   // let ogImageUrl;
@@ -131,7 +131,7 @@ export default function PostsPage({
                 )
             }
             <MDXProvider components={components}>
-              <MDXRenderer components={components}>
+              <MDXRenderer components={components} frontmatter={mdx.frontmatter}>
                 {body}
               </MDXRenderer>
             </MDXProvider>
