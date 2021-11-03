@@ -30,7 +30,7 @@ export default function IndexPage() {
           {/* Technologies Section */}
           <SectionTitle id="skills">
             <span className="text-icon-secondary">[</span>
-                    &nbsp;02. Technologies&nbsp;
+                    &nbsp;02. Skills&nbsp;
             <span className="text-icon-secondary">]</span>
           </SectionTitle>
           <Technologies />
