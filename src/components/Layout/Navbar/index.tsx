@@ -91,7 +91,7 @@ export default function Navbar({className, ...rest}: NavBarProps) {
               <Monitor size={26} className="text-icon-secondary" />
               <div className="flex items-center content-between pt-0 gap-4">
                 {menuItems.map((menuItem) => (
-                  <MenuItem animatedLink key={menuItem.href} href={menuItem.href}>{menuItem.name}</MenuItem>
+                  <MenuItem animatedLink anchorLink={menuItem.anchorLink} key={menuItem.href} href={menuItem.href}>{menuItem.name}</MenuItem>
                 ))}
                 <AnimatedLinkWithIcon
                   href="assets/Benjamin-Blumenfeld-Jones-Resume-2021.pdf"

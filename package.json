@@ -23,6 +23,7 @@
     "@mdx-js/react": "^1.6.22",
     "cloudinary-build-url": "^0.2.1",
     "gatsby": "^4.0.0",
+    "gatsby-plugin-anchor-links": "^1.2.1",
     "gatsby-plugin-emotion": "^7.0.0",
     "gatsby-plugin-image": "^2.0.0",
     "gatsby-plugin-layout": "^3.0.0",

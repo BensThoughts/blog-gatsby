@@ -40,6 +40,12 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-typescript',
     {
+      resolve: 'gatsby-plugin-anchor-links',
+      options: {
+        offset: -60,
+      },
+    },
+    {
       resolve: 'gatsby-plugin-sitemap',
       options: {
         query: `
