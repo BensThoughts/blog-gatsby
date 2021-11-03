@@ -1,5 +1,5 @@
 import * as React from 'react';
-// import {buildImageUrl} from 'cloudinary-build-url';
+import {buildImageUrl} from 'cloudinary-build-url';
 import {MDXRenderer} from 'gatsby-plugin-mdx';
 import {graphql} from 'gatsby';
 import {MDXProvider} from '@mdx-js/react';
@@ -89,13 +89,13 @@ export default function PostsPage({
   const body = mdx.body;
   // const url = data.url;
 
-  // let ogImageUrl;
+  let ogImageUrl;
   if (cloudinaryImgPath) {
-    // ogImageUrl = buildImageUrl(cloudinaryImgPath, {
-    //   cloud: {
-    //     cloudName: 'bensthoughts',
-    //   },
-    // });
+    ogImageUrl = buildImageUrl(cloudinaryImgPath, {
+      cloud: {
+        cloudName: 'bensthoughts',
+      },
+    });
   }
 
   return (
@@ -103,7 +103,7 @@ export default function PostsPage({
       <SEO
         title={title}
         description={shortDescription}
-        image={cloudinaryImgPath}
+        image={ogImageUrl}
         article={true}
       />
       <MaxWidthWrapper>
